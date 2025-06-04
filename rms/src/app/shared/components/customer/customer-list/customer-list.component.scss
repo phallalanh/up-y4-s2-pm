@@ -39,3 +39,24 @@
   display: flex;
   gap: 0.5rem;
 }
+
+.table-controls-right {
+  display: flex;
+  justify-content: flex-end; // Push content to the right
+  margin-bottom: 1rem;
+
+  p-button {
+    min-width: 10rem;
+
+    ::ng-deep .p-button {
+      background-color: #007ad9;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+
+      &:hover {
+        background-color: #005fa3;
+      }
+    }
+  }
+}

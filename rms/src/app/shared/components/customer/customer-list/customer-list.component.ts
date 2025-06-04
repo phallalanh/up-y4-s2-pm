@@ -119,6 +119,10 @@ export class CustomerListComponent implements OnInit {
     this.router.navigate(['/customer/view', customer.id]);
   }
 
+  onAddCustomer() {
+    this.router.navigate(['/customer/create']);
+  }
+
   onEdit(customer: any) {
     // Logic to edit customer
     console.log('Edit customer:', customer);
