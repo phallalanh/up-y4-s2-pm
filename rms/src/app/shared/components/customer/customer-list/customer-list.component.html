@@ -1,0 +1,45 @@
+<div class="table-controls mb-4 flex gap-2">
+  <p-button type="button" icon="pi pi-chevron-left" (click)="prev()" [disabled]="isFirstPage()" text />
+  <p-button type="button" icon="pi pi-refresh" (click)="reset()" text />
+  <p-button type="button" icon="pi pi-chevron-right" (click)="next()" [disabled]="isLastPage()" text />
+</div>
+
+<p-table [value]="customers" [paginator]="true" [rows]="5" [first]="first" [showCurrentPageReport]="true"
+  [tableStyle]="{ 'min-width': '60rem' }"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+  (onPage)="pageChange($event)" [rowsPerPageOptions]="[5, 10, 25, 50]">
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Name</th>
+      <th>Country</th>
+      <th>Company</th>
+      <th>Representative</th>
+      <th class="text-center">Action</th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-customer>
+    <tr>
+      <td>{{ customer.name }}</td>
+      <td>{{ customer.country.name }}</td>
+      <td>{{ customer.company }}</td>
+      <td>{{ customer.representative.name }}</td>
+      <td class="action-buttons text-center">
+        <span class="action-item" (click)="onView(customer)">View</span>
+        <span class="divider">|</span>
+        <span class="action-item" (click)="onEdit(customer)">Edit</span>
+        <span class="divider">|</span>
+        <span class="action-item delete" (click)="onDelete(customer)">Delete</span>
+      </td>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="paginatorleft">
+    <p-button type="button" icon="pi pi-plus" text />
+  </ng-template>
+
+  <ng-template pTemplate="paginatorright">
+    <p-button type="button" icon="pi pi-cloud" text />
+  </ng-template>
+</p-table>
