@@ -21,7 +21,7 @@ export const routes: Routes = [
                 loadComponent: () => import('./shared/components/customer/customer-form/customer-form.component').then(m => m.CustomerFormComponent)
             },
             {
-                path: 'detail/:id',
+                path: 'view/:id',
                 loadComponent: () => import('./shared/components/customer/customer-detail/customer-detail.component').then(m => m.CustomerDetailComponent)
             }
         ],
